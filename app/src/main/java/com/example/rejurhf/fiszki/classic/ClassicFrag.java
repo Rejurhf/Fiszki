@@ -1,4 +1,4 @@
-package com.example.rejurhf.fiszki.clasic;
+package com.example.rejurhf.fiszki.classic;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -39,7 +39,7 @@ public class ClassicFrag extends Fragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), ClasicActivity.class);
+                Intent intent = new Intent(getActivity(), ClassicActivity.class);
                 intent.putExtra("name", getArrayOfDirs().get(position));
                 startActivity(intent);
             }

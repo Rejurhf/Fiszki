@@ -39,6 +39,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rejurhf.fiszki.Fiszki" />
         </activity>
+        <activity
+            android:name=".classic.ClassicActivity"
+            android:label="Classic"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rejurhf.fiszki.Fiszki" />
+        </activity>
     </application>
 
 </manifest>

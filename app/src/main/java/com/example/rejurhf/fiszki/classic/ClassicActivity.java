@@ -1,4 +1,4 @@
-package com.example.rejurhf.fiszki.clasic;
+package com.example.rejurhf.fiszki.classic;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import com.example.rejurhf.fiszki.R;
  * Created by Rejurhf on 07.03.2018.
  */
 
-public class ClasicActivity extends AppCompatActivity{
+public class ClassicActivity extends AppCompatActivity{
     private String fileName = "initFile.txt";
 
     @Override
@@ -30,7 +30,7 @@ public class ClasicActivity extends AppCompatActivity{
             Bundle extras = getIntent().getExtras();
             fileName = extras.getString("name");                              //get name of clicked file
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.main, new ClasicFiszki(fileName)).commit(); //fragment that displays all words
+            fragmentManager.beginTransaction().replace(R.id.main, new ClassicFiszki(fileName)).commit(); //fragment that displays all words
         }
     }
 
