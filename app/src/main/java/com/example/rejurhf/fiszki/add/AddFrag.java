@@ -35,6 +35,12 @@ public class AddFrag extends Fragment{
 
         editText = (EditText) myView.findViewById(R.id.editTextAdd);
         listView = (ListView) myView.findViewById(R.id.listViewAdd);
+        setListView();
+
+        return myView;
+    }
+
+    private void setListView(){
         adapter = new ArrayAdapter<String>(getActivity(), R.layout.add_file, getArrayOfDirs());
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,13 +51,17 @@ public class AddFrag extends Fragment{
                 startActivity(intent);
             }
         });
-
-        return myView;
     }
 
     public void addNewSet(){
         String fileName = editText.getText().toString();
-        editText.setText("");
-        addNewFile(fileName);
+        if(!fileName.equals("")){
+            editText.setText("");
+            addNewFile(fileName);
+            setListView();
+        }else {
+            Toast.makeText(getActivity(), "Wprowadź nazwę tworzonej talii",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }
