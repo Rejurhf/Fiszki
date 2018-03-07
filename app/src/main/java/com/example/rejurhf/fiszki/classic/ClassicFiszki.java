@@ -1,7 +1,9 @@
 package com.example.rejurhf.fiszki.classic;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
@@ -55,6 +57,7 @@ class ClassicFiszki extends Fragment {
             textViewInfo.setText(hidenInfoText);
         }else{
             Toast.makeText(getActivity(), "Koniec fiszek", Toast.LENGTH_SHORT).show();
+            getActivity().setResult(Activity.RESULT_OK, new Intent().putExtra("frag",2));
             getActivity().finish();
         }
     }

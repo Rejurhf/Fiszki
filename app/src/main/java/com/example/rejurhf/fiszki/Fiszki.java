@@ -1,6 +1,8 @@
 package com.example.rejurhf.fiszki;
 
+import android.app.Activity;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.NavigationView;
@@ -28,7 +30,6 @@ public class Fiszki extends AppCompatActivity
     int curLayoutId;
     private String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/FiszkiApp";
     AddFrag addFrag = new AddFrag();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,5 +188,20 @@ public class Fiszki extends AppCompatActivity
 
     public void addButtonClicked(View view){
         addFrag.addNewSet();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
+            int frag = data.getIntExtra("frag", 0);
+            if(frag == 2){
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main,
+                        new InsertFrag()).commit();
+                curLayoutId = R.layout.frag_insert;
+                Toast.makeText(this, "Wprowadź", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
