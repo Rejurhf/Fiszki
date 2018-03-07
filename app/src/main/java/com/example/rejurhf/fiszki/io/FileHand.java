@@ -1,6 +1,7 @@
 package com.example.rejurhf.fiszki.io;
 
 import android.os.Environment;
+import com.example.rejurhf.fiszki.classic.Word;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Rejurhf on 06.03.2018.
@@ -44,16 +47,39 @@ public class FileHand {
         }
         BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
-        String lineW, lineC;
+        String lineW, lineI;
         try {
-            while ((lineW = br.readLine()) != null && (lineC = br.readLine()) != null){
-                arrayList.add(lineW + "\n" + lineC);
+            while ((lineW = br.readLine()) != null && (lineI = br.readLine()) != null){
+                arrayList.add(lineW + "\n" + lineI);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return arrayList;
+    }
+
+    public static List<Word> getListOfWords(String fileName){
+        List<Word> wordsList = new ArrayList<Word>(){};
+        File file = new File(path + "/" + fileName);
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+        String lineW, lineI;
+        try {
+            while ((lineW = br.readLine()) != null && (lineI = br.readLine()) != null){
+                wordsList.add(new Word(lineW, lineI));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return wordsList;
     }
 
     public static void addNewFile(String fileName){

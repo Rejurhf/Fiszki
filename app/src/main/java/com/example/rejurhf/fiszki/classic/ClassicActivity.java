@@ -9,7 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import com.example.rejurhf.fiszki.R;
+
+import static com.example.rejurhf.fiszki.classic.ClassicFiszki.changeInfoText;
 
 /**
  * Created by Rejurhf on 07.03.2018.
@@ -17,6 +20,7 @@ import com.example.rejurhf.fiszki.R;
 
 public class ClassicActivity extends AppCompatActivity{
     private String fileName = "initFile.txt";
+    private ClassicFiszki classicFiszki = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class ClassicActivity extends AppCompatActivity{
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             fileName = extras.getString("name");                              //get name of clicked file
+            classicFiszki = new ClassicFiszki(fileName);
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.main, new ClassicFiszki(fileName)).commit(); //fragment that displays all words
         }
@@ -64,5 +69,15 @@ public class ClassicActivity extends AppCompatActivity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showInfoClicked(View view) {
+        changeInfoText();
+    }
+
+    public void classicButtonNoClicked(View view) {
+    }
+
+    public void classicButtonYesClicked(View view) {
     }
 }
