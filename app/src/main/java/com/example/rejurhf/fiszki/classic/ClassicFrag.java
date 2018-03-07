@@ -27,7 +27,7 @@ public class ClassicFrag extends Fragment{
             ViewGroup container, Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.frag_classic, container, false);
 
-        listView = (ListView) myView.findViewById(R.id.listViewAdd);
+        listView = (ListView) myView.findViewById(R.id.listViewClasic);
         setListView();
 
         return myView;
