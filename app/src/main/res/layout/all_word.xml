@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/word"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:textSize="21sp"
+    android:id="@+id/word"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textSize="21sp"
     android:paddingBottom="4dp"
     android:paddingTop="4dp">
 </TextView>

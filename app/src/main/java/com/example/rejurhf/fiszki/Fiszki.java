@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.rejurhf.fiszki.add.AddFrag;
 import com.example.rejurhf.fiszki.all.AllFrag;
+import com.example.rejurhf.fiszki.clasic.ClassicFrag;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

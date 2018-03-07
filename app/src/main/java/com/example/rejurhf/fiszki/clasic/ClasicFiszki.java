@@ -1,4 +1,4 @@
-package com.example.rejurhf.fiszki.add;
+package com.example.rejurhf.fiszki.clasic;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
@@ -12,27 +12,22 @@ import android.widget.TextView;
 import com.example.rejurhf.fiszki.R;
 
 /**
- * Created by Rejurhf on 06.03.2018.
+ * Created by Rejurhf on 07.03.2018.
  */
 
 @SuppressLint("ValidFragment")
-public class AddWords extends Fragment {
-    private String fileName;
-    private TextView textView;
+class ClasicFiszki extends Fragment {
+    private String fileName = "initFile.txt";
 
-    @SuppressLint("ValidFragment")
-    public AddWords(String name){
-        fileName = name;
-    }           //fileName save
+    public ClasicFiszki(String fileName) {
+        this.fileName = fileName;
+    }  //fileName save
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
-        View myView = inflater.inflate(R.layout.add_words, container, false);
-        textView = (TextView) myView.findViewById(R.id.textViewAddWord);
-        String text = "Dodaj nowe słowo do " + fileName;
-        textView.setText(text);
+        View myView = inflater.inflate(R.layout.clasic_fiszki, container, false);
         return myView;
     }
 }
