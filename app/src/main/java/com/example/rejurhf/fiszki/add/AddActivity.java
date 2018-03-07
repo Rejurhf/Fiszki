@@ -76,10 +76,13 @@ public class AddActivity extends AppCompatActivity {
         editTextWord = (EditText) findViewById(R.id.editTextAddWord);
         editTextInfo = (EditText) findViewById(R.id.editTextAddInfo);
         String word = editTextWord.getText().toString();
-        editTextWord.setText("");
         String info = editTextInfo.getText().toString();
-        editTextInfo.setText("");
-        addNewWord(word, info, fileName);
-        Toast.makeText(this, "Naciośnięto", Toast.LENGTH_SHORT).show();
+        if(!word.equals("") && !info.equals("")){
+            editTextWord.setText("");
+            editTextInfo.setText("");
+            addNewWord(word, info, fileName);
+        }else {
+            Toast.makeText(this, "Wprowadź tekst w obu rubrykach", Toast.LENGTH_SHORT).show();
+        }
     }
 }
