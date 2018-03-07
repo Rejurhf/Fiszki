@@ -12,15 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import com.example.rejurhf.fiszki.R;
 
-import static com.example.rejurhf.fiszki.classic.ClassicFiszki.changeInfoText;
-
 /**
  * Created by Rejurhf on 07.03.2018.
  */
 
 public class ClassicActivity extends AppCompatActivity{
     private String fileName = "initFile.txt";
-    private ClassicFiszki classicFiszki = null;
+    private ClassicFiszki classicFiszki;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,13 +27,12 @@ public class ClassicActivity extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
-
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
             fileName = extras.getString("name");                              //get name of clicked file
             classicFiszki = new ClassicFiszki(fileName);
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.main, new ClassicFiszki(fileName)).commit(); //fragment that displays all words
+            fragmentManager.beginTransaction().replace(R.id.main, classicFiszki).commit(); //fragment that displays all words
         }
     }
 
@@ -72,12 +69,14 @@ public class ClassicActivity extends AppCompatActivity{
     }
 
     public void showInfoClicked(View view) {
-        changeInfoText();
+        classicFiszki.changeInfoText();
     }
 
     public void classicButtonNoClicked(View view) {
+        classicFiszki.showNewWord();
     }
 
     public void classicButtonYesClicked(View view) {
+        classicFiszki.showNewWord();
     }
 }
